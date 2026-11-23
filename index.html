@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Integrated Language Services | TOEFL Listening Practice</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f4f3;--ink:#14272e;--mut:#5b6b70;--card:#fff;--line:#d5dcdc;--brand:#0e4b5a;--hi:#c8791c;--ok:#1f7a4d;--bad:#b3392f;--okbg:#e4f3ea;--badbg:#f8e6e3}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1a1e;--ink:#e8eeee;--mut:#9fb0b4;--card:#16262b;--line:#2b4047;--brand:#7cc4d4;--hi:#e8a350;--ok:#5fcf93;--bad:#ff8d82;--okbg:#17362a;--badbg:#3b1f1c}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 "Public Sans",system-ui,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+header{background:var(--brand);color:#fff;padding:18px 20px;border-bottom:4px solid var(--hi)}
+@media(prefers-color-scheme:dark){header{color:#0f1a1e}}
+header h1{margin:0;font:700 1.6rem/1.2 Newsreader,Georgia,serif;letter-spacing:.01em}
+header p{margin:2px 0 0;font-size:.9rem;opacity:.85}
+main{max-width:760px;margin:0 auto;padding:24px 18px 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:18px}
+h2{font:700 1.5rem/1.25 Newsreader,Georgia,serif;margin:0 0 10px}h3{font:700 1.15rem Newsreader,Georgia,serif;margin:20px 0 6px}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:6px;font:inherit;background:var(--bg);color:var(--ink)}
+button{font:600 1rem "Public Sans",sans-serif;background:var(--brand);color:#fff;border:0;border-radius:6px;padding:12px 22px;cursor:pointer;margin-top:16px}
+@media(prefers-color-scheme:dark){button{color:#0f1a1e}}
+button:disabled{opacity:.45;cursor:not-allowed}button.alt{background:transparent;color:var(--brand);border:1px solid var(--brand)}
+:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+.err{color:var(--bad);margin-top:10px;min-height:1.2em}.mut{color:var(--mut);font-size:.92rem}
+.bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin-bottom:16px}.bar i{display:block;height:100%;background:var(--hi)}
+.opt{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:10px 0;cursor:pointer}
+.opt:has(input:checked){border-color:var(--brand);background:var(--bg);box-shadow:inset 4px 0 0 var(--brand)}
+.opt input{width:auto;margin-top:5px}
+.player{display:flex;align-items:center;gap:14px;padding:16px;border:1px dashed var(--brand);border-radius:8px;margin:14px 0}
+.player button{margin:0}
+.stat{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0}.stat div{flex:1 1 130px;border:1px solid var(--line);border-radius:8px;padding:12px}
+.stat b{display:block;font:700 1.9rem Newsreader,serif}
+table{width:100%;border-collapse:collapse;font-size:.93rem;display:block;overflow-x:auto}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.ok{color:var(--ok);font-weight:600}.no{color:var(--bad);font-weight:600}
+.rev{border-left:5px solid var(--line);padding:10px 14px;margin:12px 0;background:var(--bg);border-radius:0 6px 6px 0}
+.rev.ok{border-color:var(--ok)}.rev.no{border-color:var(--bad)}.rev p{margin:4px 0;font-weight:400;color:var(--ink)}
+.plan li{margin:6px 0}
+@media print{header~main button,.noprint{display:none}body{background:#fff}.card{break-inside:avoid}}
+</style></head><body>
+<header><h1>Integrated Language Services</h1><p>TOEFL iBT Listening Practice</p></header>
+<main id="app"></main>
+<script>
+const SALT="ILS-TOEFL-2026",AUDIO_DIR="audio/";
+const HASHES={"users": {"User_1": "af488c6df3faf59ba7c9d09eb9da86f328b2b0c47128941b1770c09f44de4d9a", "User_2": "424b4891e99097b6125507131616ee74f820e575a348143078b84bcc470c7680", "User_3": "7ef085bf18fcb3e8933ad3d04d6968eda6650a3003f0dc53c0d184e71077af06", "User_4": "2b6eca2ea6470275114c3268bc78db19f03b7c42ca0e8dbf6abdb8137e3ad9de", "User_5": "7ce907205cb362af23192e33212fe34264a0f4fdaadf6e71678324fa1f39b359", "User_6": "f7d41880519fc571a8e39003e776766f024fb859c501f742f73a976bf21625ff", "User_7": "c4a833c56a37841071b6c0044bab3e13f19be98fbf98e24ac2b4f3a5017e2832", "User_8": "ce302357513ac0bcc060b8a87b5981b2b0435323990e8742e449de5c515dc07a", "User_9": "d7156af5b6b5c2070540dc2f0692ab5282340af09a45644bc4f9acc79260efe2", "User_10": "4917559b22fc0a4560ada9ab594bc4e214367ee51aa7f8dab6f1edfb3a76e38b"}, "master": "f5f003c6b45f4413fa815aafd836ac2d533777ee34b217ea08c50903f76e71e5"};
+// Question order = test order. Edit freely; "file" must match an MP3 in the audio folder.
+const Q=[
+{type:"Listen and Choose a Response",file:"Listen_and_Choose_a_Response.mp3",q:"Listen to the speaker and choose the best response.",o:["I rode the first bus.","You can follow me there.","Usually about fifteen minutes.","Even later than that."],a:0,bench:85,why:"It is the only choice that explains how the speaker got there so early. B is an offer, C gives a typical duration, and D is unrelated.",tip:"Ask what the speaker is doing: asking, offering, checking, or complaining. Then pick the reply that answers that action.",drill:"Play 10 short one-line recordings. Before reading the choices, say aloud what the speaker wants. Then choose the reply."},
+{type:"Gist-Purpose",file:"Gist-Purpose_Question.mp3",q:"What is the speaker's main purpose in discussing talent acquisition?",o:["To convince the audience to apply for jobs at specific tech companies","To compare the profitability of startups versus established corporations","To explain different approaches companies use to find and hire talent and how they measure success","To argue that employee referrals are always superior to job board postings"],a:2,bench:80,why:"The talk covers three hiring strategies and the metrics used to measure them. No company is promoted, profitability is not ranked, and no method is argued to be best.",tip:"Say the speaker's goal in one short sentence beginning with \"to\", then find the matching choice. The ending often confirms the purpose.",drill:"After each announcement or conversation, write one sentence starting with \"To...\" before looking at the choices."},
+{type:"Detail",file:"Detail_Question.mp3",q:"What does the man say about the hill lot?",o:["He could wait downstairs until lockup.","She still has receipts to finish.","She would only miss the first meteors.","That lot fills early."],a:3,bench:69,why:"The man says the lot is usually full well before the show starts. A is something he offers later, B is her office work, and C is something she says about stalling.",tip:"Match the detail named in the question to the same fact in the audio. Listen to the whole turn, because a speaker may change a first reaction.",drill:"Take notes on who said what (use M/W). Check each choice against the speaker named in the question."},
+{type:"Reason for Action",file:"Reason-for-Action_Question.mp3",q:"Why is the woman reluctant to do so?",o:["She doesn't think she would like it.","She has to get up early the next day.","She has no way to get there.","She's already eaten dinner."],a:1,bench:null,why:"She says she has an early lab tomorrow. She says the activity sounds fun, transportation is never mentioned, and dinner is not given as a reason.",tip:"Reasons follow signal words such as because, since, so, had to, and needed to. A reason often starts as a problem, so connect the problem to the action.",drill:"Listen to short conversations and write each problem and the action it caused, using the words \"because\" or \"so\"."},
+{type:"Function",file:"Function_Question.mp3",q:"Why does the speaker mention bookstore bankruptcies?",o:["To explain how digital publishers generate their subscription revenue","To illustrate the dramatic financial impact of disruption on traditional businesses","To recommend investing in independent bookstores as a stable financial strategy","To argue that government regulation always protects legacy publishing companies"],a:1,bench:78,why:"The bankruptcies show how severe the disruption was. Subscription revenue, investment advice, and government protection are never discussed.",tip:"Focus on the action behind the line, not its literal meaning. The lines before and after carry the answer. Avoid choices that only restate the words.",drill:"For each line you hear, complete: \"The speaker says this in order to...\" Then check how the other speaker reacts."},
+{type:"Gist-Content",file:"Gist-Content_Question.mp3",q:"What is the talk mainly about?",o:["The history of public libraries in major American cities","A digital distribution model that disrupted the traditional publishing industry","How to self-publish an e-book from start to finish","Why physical books always outsell digital alternatives long-term"],a:1,bench:null,why:"The talk shows how digital publishing began as a supplement and then displaced established publishers. Library history and self-publishing steps are not the focus, and the opposite of D is shown.",tip:"A topic tells you what the talk is about. Listen to the introduction and conclusion, and avoid choices built on one small detail.",drill:"After each talk, summarize the topic in under 10 words, then compare it with the choices."},
+{type:"Rhetorical Purpose",file:"Rhetorical_Purpose_Question.mp3",q:"Why does the speaker mention that Lorenz separated goose eggs after hatching?",o:["To prove that birds cannot recognize humans","To suggest that imprinting only works with geese","To show how imprinting can be studied scientifically","To highlight the dangers of human interaction with animals"],a:2,bench:null,why:"It describes Lorenz's experimental method, which isolates variables so imprinting can be observed under control. The goslings did follow a human, geese are only an example, and no dangers are discussed.",tip:"The phrase right before the line shows its job: \"for example\" gives support, \"in other words\" restates, \"but/however\" corrects. The line is not a new topic.",drill:"Note signal phrases in academic talks. For every example or detail, write what idea it supports."},
+{type:"Inference",file:"Inference_Question.mp3",q:"What can be inferred about consumers who routinely discard single-use plastic bottles?",o:["They are actively supporting reusable product initiatives","They are contributing to the massive plastic waste problem the speaker describes","They always purchase the most environmentally friendly options available","They carefully research each product's environmental impact first"],a:1,bench:60,why:"The convenience model depends on single-use and disposal, which generates massive waste. A is the opposite, and C and D are not implied.",tip:"Use tone, what the speaker does next, or what is left out. Keep the choice the evidence supports and reject the one that goes further. Beware choices that repeat a heard word with a changed meaning.",drill:"For each choice, find the exact moment in the audio that supports it. If you can't point to one, reject it."}
+];
+const $=s=>document.querySelector(s),app=$("#app");
+let user=null,isMaster=false,st=null,i=0,played=false;
+const key=u=>"ils_toefl_v1_"+u;
+const load=()=>{try{return JSON.parse(localStorage.getItem(key(user)))}catch(e){return null}};
+const save=()=>{if(!isMaster)try{localStorage.setItem(key(user),JSON.stringify(st))}catch(e){}};
+async function sha(p){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(SALT+p));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function login(msg){app.innerHTML=`<div class="card"><h2>Sign in</h2><p class="mut">Enter the username and password your teacher gave you. You get one attempt.</p>
+<label for="u">Username</label><input id="u" placeholder="User_1" autocomplete="username" autocapitalize="off">
+<label for="p">Password</label><input id="p" type="password" autocomplete="current-password">
+<div class="err" role="alert">${msg||""}</div><button id="go">Sign in</button></div>`;
+ const go=async()=>{const u=$("#u").value.trim(),h=await sha($("#p").value.trim());
+  const m=u.toLowerCase()==="master"&&h===HASHES.master, ok=HASHES.users[u]===h;
+  if(!m&&!ok)return login("Username or password is incorrect.");
+  user=m?"master":u;isMaster=m;st=m?null:load();
+  if(st&&st.start)return finish(true);
+  intro()};
+ $("#go").onclick=go;$("#p").onkeydown=e=>{if(e.key==="Enter")go()}}
+
+function intro(){app.innerHTML=`<div class="card"><h2>Listening section</h2><p>Welcome, <b>${esc(isMaster?"Master (testing)":user)}</b>.</p>
+<ul><li>There are <b>${Q.length} questions</b>. Each has one recording.</li>
+<li>Each recording plays <b>once</b>. You cannot pause, replay, or go back.</li>
+<li>Choose one answer, then select <b>Next</b>. Answers are final.</li>
+<li>Do not refresh or close the page. Leaving the test ends your attempt, and unanswered questions are marked incorrect.</li>
+<li>Use headphones and make sure your volume is on.</li></ul>
+${isMaster?'<p class="mut">Master key: unlimited tries. Results are not saved.</p>':'<p class="mut"><b>You have only one attempt.</b></p>'}
+<button id="b">Begin test</button></div>`;
+ $("#b").onclick=()=>{st={start:Date.now(),ans:Array(Q.length).fill(null),done:false};save();i=0;question()}}
+
+function question(){const q=Q[i];played=false;
+ app.innerHTML=`<div class="card"><div class="mut">Question ${i+1} of ${Q.length}</div><div class="bar"><i style="width:${i/Q.length*100}%"></i></div>
+<div class="player"><button id="pl">Play audio</button><span id="ps" class="mut">Plays one time only.</span></div>
+<audio id="au" preload="auto" src="${AUDIO_DIR}${q.file}"></audio>
+<div id="qa" hidden><h2>${esc(q.q)}</h2><div id="ops"></div><button id="nx" disabled>${i<Q.length-1?"Next":"Submit and see report"}</button></div></div>`;
+ const au=$("#au"),pl=$("#pl"),ps=$("#ps");
+ const reveal=()=>{ps.textContent="Audio finished. Choose your answer.";$("#qa").hidden=false;
+  $("#ops").innerHTML=q.o.map((t,k)=>`<label class="opt"><input type="radio" name="c" value="${k}"><span>${esc(t)}</span></label>`).join("");
+  document.querySelectorAll("input[name=c]").forEach(r=>r.onchange=()=>$("#nx").disabled=false);
+  $("#nx").onclick=()=>{st.ans[i]=+document.querySelector("input[name=c]:checked").value;save();i++;i<Q.length?question():(st.done=true,st.end=Date.now(),save(),finish())}};
+ au.onerror=()=>{if(!played){ps.textContent="The audio could not load. Check your connection and try again.";pl.disabled=false;pl.textContent="Try again"}};
+ pl.onclick=()=>{if(played)return;au.load();au.play().then(()=>{played=true;pl.disabled=true;pl.textContent="Playing...";ps.textContent="Listen carefully."}).catch(()=>{ps.textContent="The audio could not start. Select the button again.";pl.disabled=false})};
+ au.onended=reveal;
+ au.onerror=()=>{if(played){reveal()}else{ps.textContent="The audio could not load. Check your connection and try again.";pl.disabled=false;pl.textContent="Try again"}}}
+
+function finish(resumed){const a=st.ans,n=Q.length,right=Q.filter((q,k)=>a[k]===q.a).length,pct=Math.round(right/n*100),
+ skipped=a.filter(x=>x===null).length,L="ABCD";
+ const lvl=pct>=88?"Strong":pct>=63?"Developing":"Needs focused practice";
+ const miss=Q.filter((q,k)=>a[k]!==q.a),hit=Q.filter((q,k)=>a[k]===q.a);
+ const mins=st.end?Math.max(1,Math.round((st.end-st.start)/60000)):null;
+ const rows=Q.map((q,k)=>`<tr><td>${q.type}</td><td class="${a[k]===q.a?"ok":"no"}">${a[k]===q.a?"Correct":a[k]===null?"Unanswered":"Incorrect"}</td><td>${a[k]===null?"-":L[a[k]]}</td><td>${L[q.a]}</td><td>${q.bench?q.bench+"%":"-"}</td></tr>`).join("");
+ const rev=Q.map((q,k)=>`<div class="rev ${a[k]===q.a?"ok":"no"}"><b>${k+1}. ${q.type}</b><p>${esc(q.q)}</p>
+<p>Your answer: ${a[k]===null?"none":L[a[k]]+". "+esc(q.o[a[k]])}</p>${a[k]===q.a?"":`<p>Correct answer: ${L[q.a]}. ${esc(q.o[q.a])}</p>`}<p class="mut">${esc(q.why)}</p></div>`).join("");
+ const prio=miss.map(q=>`<li><b>${q.type}.</b> ${esc(q.tip)}<br><span class="mut">Drill: ${esc(q.drill)}</span></li>`).join("");
+ const week=(w,t)=>`<li><b>Week ${w}:</b> ${t}</li>`;
+ const focus=miss.length?miss.map(q=>q.type).join(", "):"all question types";
+ app.innerHTML=`<div class="card"><h2>Executive report</h2><p class="mut">${esc(isMaster?"Master (testing)":user)}${resumed?" | Your single attempt has been used. This is your saved result.":""}</p>
+<div class="stat"><div><b>${right}/${n}</b>Correct</div><div><b>${pct}%</b>Accuracy</div><div><b>${n-right}</b>Incorrect${skipped?" ("+skipped+" unanswered)":""}</div><div><b>${lvl}</b>Overall level</div>${mins?`<div><b>${mins} min</b>Time spent</div>`:""}</div>
+<p>${miss.length?`Strengths: ${hit.length?hit.map(q=>q.type).join(", "):"none yet"}. Priority areas: ${focus}.`:"You answered every question correctly. Keep practicing at test speed to maintain this level."}</p>
+<h3>Results by question type</h3><table><tr><th>Type</th><th>Result</th><th>Your answer</th><th>Correct</th><th>Typical learner score</th></tr>${rows}</table>
+<p class="mut">Typical learner score is the share of practice learners who answer that type correctly. It is shown where available.</p></div>
+<div class="card"><h3 style="margin-top:0">Study and practice plan</h3>
+${miss.length?`<p><b>Step 1. Fix the question types you missed (highest priority):</b></p><ol class="plan">${prio}</ol>`:`<p>No weak types found. Use the plan below to build speed and stamina.</p>`}
+<p><b>Step 2. Four-week schedule (20-30 minutes a day, 5 days a week):</b></p><ol class="plan">
+${week(1,"Study the strategy for "+focus+". Do 5 short recordings a day. Listen once, answer, then replay to confirm.")}
+${week(2,"Add note-taking (speaker, main idea, one detail). Do 2 full-length talks or conversations a day and answer from your notes.")}
+${week(3,"Practice with strict test rules: audio once, no pausing, no going back. Review every wrong answer and name the trap you fell for.")}
+${week(4,"Take a full timed set. Compare your accuracy by type with this report and repeat drills for any type still below 75%.")}</ol>
+<p><b>Step 3. Daily habits:</b> Listen to English podcasts, lectures, or news for 15 minutes. Summarize each in one sentence. Keep a notebook of signal phrases (for example, however, in other words, so that).</p></div>
+<div class="card"><h3 style="margin-top:0">Answer review</h3>${rev}
+<button class="noprint" onclick="window.print()">Print or save as PDF</button>${isMaster?'<button class="alt noprint" onclick="location.reload()">Restart test (master)</button>':""}</div>`}
+login();
+</script></body></html>
